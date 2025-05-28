@@ -1,12 +1,12 @@
 // La liste des liens est obtenue grâce à la lecture d’un fichier csv (Libre Office Calc, Excel, Google Sheets)
 
 // Configuration :
-const csv = "links.csv";
+const csv = "bibliographie.csv";
 const separator = ";"
 
 // Lecture du fichier
 var request = new XMLHttpRequest();  
-request.open("GET", "links.csv", false);   
+request.open("GET", "bibliographie.csv", false);   
 request.send(null);  
 
 // fonction pour supprimer les guillemets autour des chaînes
@@ -57,8 +57,8 @@ for (var i = 0; i < links.length; i++) {
   // ici, on pourrait ajouter des class en fonction de la colonne “categories”
   a.classList.add('link');
   // texte et href issus des attributs "text" et "url" de l’élément
-  a.textContent = link.text;
-  a.href = link.url;
+  a.textContent = link.Author + ' - ' + link.Title + ' - ' + link.PublicationYear ;
+  a.href = link.Url;
   document.body.appendChild(a);
   // on l’ajoute à la liste des éléments
   anchors.push(a);
